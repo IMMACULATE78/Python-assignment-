@@ -1,0 +1,31 @@
+def file_read_write():
+    try:
+        with open("sample.txt", "r") as file:
+            content = file.read()
+        
+        # Modify the content (for example, convert to uppercase)
+        modified_content = content.upper()
+
+        # Write to a new file
+        with open("modified_sample.txt", "w") as new_file:
+            new_file.write(modified_content)
+        
+        print("File read and modified successfully!")
+    
+    except FileNotFoundError:
+        print("Error: 'sample.txt' file not found.")
+
+def error_handling_lab():
+    filename = input("Enter the filename to read: ")
+    try:
+        with open(filename, "r") as file:
+            print("\nFile content:\n")
+            print(file.read())
+    except FileNotFoundError:
+        print(f"Error: The file '{filename}' does not exist.")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+
+# Run both functions
+file_read_write()
+error_handling_lab()
